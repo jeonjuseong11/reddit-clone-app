@@ -19,6 +19,7 @@
       "class-transformer": "^0.5.1",
       "class-validator": "^0.14.0",
       "cookie": "^0.6.0",
+      "cookie-parser": "^1.4.6",
       "cors": "^2.8.5",
       "dotenv": "^16.3.1",
       "epress": "^0.0.1-security",
@@ -34,6 +35,7 @@
    "devDependencies": {
       "@types/bcryptjs": "^2.4.6",
       "@types/cookie": "^0.6.0",
+      "@types/cookie-parser": "^1.4.6",
       "@types/jsonwebtoken": "^9.0.5",
       "@types/node": "^16.11.10",
       "ts-node": "10.7.0",
