@@ -1,5 +1,5 @@
-import React from "react";
-import cls from "classnames";
+import React from 'react';
+import cls from 'classnames';
 interface InputGroupProps {
   className?: string;
   type?: string;
@@ -10,9 +10,9 @@ interface InputGroupProps {
 }
 
 const InputGroup: React.FC<InputGroupProps> = ({
-  className = "mb-2", //기본값 정의
-  type = "text",
-  placeholder = "",
+  className = 'mb-2',
+  type = 'text',
+  placeholder = '',
   error,
   value,
   setValue,
@@ -24,7 +24,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
         style={{ minWidth: 300 }}
         className={cls(
           `w-full p-3 transition duration-200 border border-gray-400 rounded bg-gray-50 focus:bg-white hover:bg-white`,
-          { "border-red-500": error } //에러가 있을 경우 border0-red-500을 활성호하
+          { 'border-red-500': error } //에러가 있을 경우 border0-red-500을 활성호하
         )}
         placeholder={placeholder}
         value={value}

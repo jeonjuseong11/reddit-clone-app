@@ -1,23 +1,25 @@
-import axios from "axios";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { FormEvent, useState } from "react";
-import InputGroup from "../components/InputGroup";
-import { useAuthDispatch } from "../context/auth";
+import axios from 'axios';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { FormEvent, useState } from 'react';
+import InputGroup from '../components/InputGroup';
+import { useAuthDispatch } from '../context/auth';
 
 const Login = () => {
   let router = useRouter();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<any>({});
-
+  const { authenticated } = useAuthDispatch();
   const dispatch = useAuthDispatch();
+
+  if (authenticated) router.push('/');
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
       const res = await axios.post(
-        "/auth/login",
+        '/auth/login',
         {
           password,
           username,
@@ -26,7 +28,7 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      dispatch("LOGIN", res.data?.user);
+      dispatch('LOGIN', res.data?.user);
     } catch (error: any) {
       console.error(error);
       setErrors(error?.response?.data || {});
@@ -46,7 +48,8 @@ const Login = () => {
               error={errors.username}
             />
             <InputGroup
-              placeholder="Email"
+              placeholder="Password"
+              type="password"
               value={password}
               setValue={setPassword}
               error={errors.password}
