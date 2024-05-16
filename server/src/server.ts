@@ -8,7 +8,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 const app = express();
-const origin = "http://localhost:3000";
+const origin = process.env.API_URL;
 app.use(
   cors({
     origin,
@@ -21,7 +21,7 @@ app.use(cookieParser()); //쿠키를 받을 수 있음
 
 dotenv.config();
 
-app.get("/", (_, res) => res.send("runnging")); //url로 접속을 하면 해당 블록의 코드를 실행
+app.get("/", (_, res) => res.send("running")); //url로 접속을 하면 해당 블록의 코드를 실행
 
 let port = 4000; //포트를 지정
 app.use("/api/auth", authRoutes);

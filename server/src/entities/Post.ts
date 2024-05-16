@@ -1,5 +1,13 @@
 import { Exclude, Expose } from "class-transformer";
-import { BeforeInsert, Column, Entity, Index, JoinColumn, ManyToOne, OneToMany } from "typeorm";
+import {
+  BeforeInsert,
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+} from "typeorm";
 import { makeId, slugify } from "../utils/helpers";
 import Comment from "./Comment";
 import BaseEntity from "./Entity";
@@ -52,6 +60,7 @@ export default class Post extends BaseEntity {
     return this.votes?.reduce((memo, curt) => memo + (curt.value || 0), 0);
   }
   protected userVote: number;
+
   setUserVote(user: User) {
     const index = this.votes?.findIndex((v) => v.username === user.username);
     this.userVote = index > -1 ? this.votes[index].value : 0;

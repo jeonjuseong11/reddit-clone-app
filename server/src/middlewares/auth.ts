@@ -1,4 +1,4 @@
-import { User } from "../entities/User";
+import User from "../entities/User";
 import { NextFunction, Response, Request } from "express";
 
 export default async (req: Request, res: Response, next: NextFunction) => {

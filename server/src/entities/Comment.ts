@@ -1,10 +1,18 @@
 import { Exclude, Expose } from "class-transformer";
-import { BeforeInsert, Column, Entity, Index, JoinColumn, ManyToOne, OneToMany } from "typeorm";
+import {
+  BeforeInsert,
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+} from "typeorm";
 import { makeId } from "../utils/helpers";
 import BaseEntity from "./Entity";
 import Post from "./Post";
-import { User } from "./User";
 import Vote from "./Vote";
+import User from "./User";
 @Entity("comments")
 export default class Comment extends BaseEntity {
   @Index()
@@ -41,7 +49,8 @@ export default class Comment extends BaseEntity {
   @Expose() get voteScore(): number {
     const initalValue = 0;
     return this.votes?.reduce(
-      (previousValue, currentObject) => previousValue + (currentObject.value || 0),
+      (previousValue, currentObject) =>
+        previousValue + (currentObject.value || 0),
       initalValue
     );
   }

@@ -1,5 +1,12 @@
 import { Expose } from "class-transformer";
-import { Column, Entity, Index, JoinColumn, ManyToOne, OneToMany } from "typeorm";
+import {
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+} from "typeorm";
 import BaseEntity from "./Entity";
 import Post from "./Post";
 import { User } from "./User";
@@ -38,7 +45,9 @@ export default class Sub extends BaseEntity {
       : "https://www.gravatar.com/avatar?d=mp&f=y";
   }
   @Expose()
-  get bannerUrl(): string {
-    return this.bannerUrn ? `${process.env.APP_URL}/images/${this.imageUrn}` : undefined;
+  get bannerUrl(): string | undefined {
+    return this.bannerUrn
+      ? `${process.env.APP_URL}/images/${this.imageUrn}`
+      : undefined;
   }
 }
