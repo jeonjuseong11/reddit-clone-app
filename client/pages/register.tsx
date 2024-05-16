@@ -38,25 +38,10 @@ const Register = () => {
         <div className="w-10/12 mx-auto md:w-96">
           <h1 className="mb-2 text-lg font-medium">회원가입</h1>
           <form onSubmit={handleSubmit}>
-            <InputGroup
-              placeholder="Email"
-              value={email}
-              setValue={setEmail}
-              error={errors.email}
-            />
-            <InputGroup
-              placeholder="Username"
-              value={username}
-              setValue={setUsername}
-              error={errors.username}
-            />
-            <InputGroup
-              placeholder="Password"
-              value={password}
-              setValue={setPassword}
-              error={errors.password}
-            />
-            <button className="w-full py-2 mb-1 text-xs font-vold text-white uppercase bg-gray-400 border border-gray-400 rounded">
+            <InputGroup placeholder="Email" value={email} setValue={setEmail} error={errors.email} />
+            <InputGroup placeholder="Username" value={username} setValue={setUsername} error={errors.username} />
+            <InputGroup placeholder="Password" value={password} setValue={setPassword} error={errors.password} />
+            <button className="w-full py-3 mb-1 text-xs font-bold text-white uppercase bg-gray-400 border border-gray-400 rounded">
               회원가입
             </button>
           </form>

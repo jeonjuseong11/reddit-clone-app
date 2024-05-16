@@ -26,7 +26,7 @@ const Login = () => {
         },
         {
           withCredentials: true,
-        }
+        },
       );
       dispatch('LOGIN', res.data?.user);
     } catch (error: any) {
@@ -41,12 +41,7 @@ const Login = () => {
         <div className="w-10/12 mx-auto md:w-96">
           <h1 className="mb-2 text-lg font-medium">로그인</h1>
           <form onSubmit={handleSubmit}>
-            <InputGroup
-              placeholder="Username"
-              value={username}
-              setValue={setUsername}
-              error={errors.username}
-            />
+            <InputGroup placeholder="Username" value={username} setValue={setUsername} error={errors.username} />
             <InputGroup
               placeholder="Password"
               type="password"
