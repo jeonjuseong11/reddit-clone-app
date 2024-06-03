@@ -45,7 +45,7 @@ const SubCreate = () => {
             <InputGroup placeholder="주제" value={title} setValue={setTitle} error={errors.title} />
           </div>
           <div className="my-6">
-            <p className="font-medium">Descripttion</p>
+            <p className="font-medium">Description</p>
             <p className="mb-2 text-xs text-gray-400">해당 커뮤니티에 대한 설명입니다.</p>
             <InputGroup placeholder="설명" value={description} setValue={setDescription} error={errors.description} />
           </div>

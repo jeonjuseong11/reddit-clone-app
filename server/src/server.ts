@@ -8,6 +8,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 const app = express();
+dotenv.config();
+
 const origin = process.env.API_URL;
 app.use(
   cors({
@@ -18,8 +20,6 @@ app.use(
 app.use(express.json());
 app.use(morgan("dev")); //dev, short, common, combined 중 개발 환경에서는 dev를 가장 많이 씀
 app.use(cookieParser()); //쿠키를 받을 수 있음
-
-dotenv.config();
 
 app.get("/", (_, res) => res.send("running")); //url로 접속을 하면 해당 블록의 코드를 실행
 
